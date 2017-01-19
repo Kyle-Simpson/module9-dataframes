@@ -30,28 +30,30 @@ salaries$got.raise <- salaries$raise > 0
 salaries(57, 3)
 
 # How many employees got a raise?
-
+num.of.raises <- length(which(salaries$got.raise == TRUE))
 
 # What was the value of the highest raise?
-
+highest.raise <- max(salaries$raise)
 
 # What was the "name" of the employee who received the highest raise?
-
+salaries$employees[which(salaries$raise == highest.raise)]
 
 # What was the largest decrease in salaries between the two years?
-
+lowest.raise <- min(salaries$raise)
 
 # What was the name of the employee who recieved largest decrease in salary?
+salaries$employees[which(salaries$raise == lowest.raise)]
 
 # What was the average salary increase?
-
+average.raise.amount <- mean(salaries$raise)
 
 ### Bonus ###
 
 # Write a .csv file of your salaries to your working directory
-
+write.csv(salaries, file = "salaries.csv")
 
 # For people who did not get a raise, how much money did they lose?
-
+sum(salaries$raise[salaries$raise < 0])
 
 # Is that what you expected them to lose based on how you generated their salaries?
+    # No, it's not what I expected
